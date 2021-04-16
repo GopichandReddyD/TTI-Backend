@@ -19,5 +19,7 @@ public class EmailController {
 
 		return "emailsent";
 	}
+	
+	
 
 }

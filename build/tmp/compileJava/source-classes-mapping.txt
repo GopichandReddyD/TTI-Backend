@@ -1,12 +1,36 @@
 com/ttu/rbt/repo/UserRepository.java
  com.ttu.rbt.repo.UserRepository
+com/ttu/rbt/pojo/UserPojo.java
+ com.ttu.rbt.pojo.UserPojo
+com/ttu/rbt/service/EmailService.java
+ com.ttu.rbt.service.EmailService
+com/ttu/rbt/repo/FList.java
+ com.ttu.rbt.repo.FList
+com/ttu/rbt/controller/FileController.java
+ com.ttu.rbt.controller.FileController
+com/ttu/rbt/pojo/LoginPojo.java
+ com.ttu.rbt.pojo.LoginPojo
+com/ttu/rbt/entity/FileUpload.java
+ com.ttu.rbt.entity.FileUpload
+com/ttu/rbt/controller/EmailController.java
+ com.ttu.rbt.controller.EmailController
+com/ttu/rbt/controller/LoginController.java
+ com.ttu.rbt.controller.LoginController
+com/ttu/rbt/service/FileService.java
+ com.ttu.rbt.service.FileService
 com/ttu/rbt/controller/UserController.java
  com.ttu.rbt.controller.UserController
 com/ttu/rbt/RbtApplication.java
  com.ttu.rbt.RbtApplication
 com/ttu/rbt/permissions/PermissionsEnum.java
  com.ttu.rbt.permissions.PermissionsEnum
+com/ttu/rbt/pojo/FilesPojo.java
+ com.ttu.rbt.pojo.FilesPojo
+com/ttu/rbt/service/UserService.java
+ com.ttu.rbt.service.UserService
+com/ttu/rbt/pojo/HRefModel.java
+ com.ttu.rbt.pojo.HRefModel
 com/ttu/rbt/entity/User.java
  com.ttu.rbt.entity.User
-com/ttu/rbt/pojo/Userpojo.java
- com.ttu.rbt.pojo.Userpojo
+com/ttu/rbt/repo/FileRepository.java
+ com.ttu.rbt.repo.FileRepository
