@@ -29,8 +29,8 @@ dependencies {
 	//implementation group: 'org.springframework', name: 'spring-context-support', version: '5.2.8.RELEASE'
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.4.4'
-
-	
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.2.32'
 	
 }
 

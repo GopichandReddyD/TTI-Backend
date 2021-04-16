@@ -11,24 +11,28 @@ public class FileUpload {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	private String Title;
+
+	private String title;
 
 	private String description;
 
 	private String mainCategory;
 
 	private String subCategory;
-	
+
 	private String type;
-	
+
 	private String keywords;
 
 	private String name;
-	
+
 	private String filePath;
-	
+
 	private String ref;
+
+	private Integer downloads;
+
+	private Integer views;
 
 	public Integer getId() {
 		return id;
@@ -39,11 +43,11 @@ public class FileUpload {
 	}
 
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 
 	public String getDescription() {
@@ -110,5 +114,20 @@ public class FileUpload {
 		this.ref = ref;
 	}
 
+	public Integer getDownloads() {
+		return downloads;
+	}
+
+	public void setDownloads(Integer downloads) {
+		this.downloads = downloads;
+	}
+
+	public Integer getViews() {
+		return views;
+	}
+
+	public void setViews(Integer views) {
+		this.views = views;
+	}
 
 }
