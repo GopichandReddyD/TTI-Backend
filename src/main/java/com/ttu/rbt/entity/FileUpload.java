@@ -1,5 +1,7 @@
 package com.ttu.rbt.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,7 +51,7 @@ public class FileUpload {
 	}
 
 	public void setUuid(String uuid) {
-		this.uuid = uuid;
+		this.uuid = UUID.randomUUID().toString();
 	}
 
 	public String getTitle() {
