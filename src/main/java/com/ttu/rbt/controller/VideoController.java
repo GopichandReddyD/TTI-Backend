@@ -1,5 +1,7 @@
 package com.ttu.rbt.controller;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ public class VideoController {
 
 	@PostMapping("/upload/video")
 	public ResponseEntity<FileUpload> uploadVideo(@RequestBody FileUpload fileUpload) {
+		
+		fileUpload.setUuid(UUID.randomUUID().toString());
+		
 
 		return new ResponseEntity<>(fileRepository.save(fileUpload), HttpStatus.ACCEPTED);
 
