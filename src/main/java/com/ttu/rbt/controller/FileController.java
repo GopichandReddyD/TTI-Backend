@@ -38,7 +38,7 @@ public class FileController {
 		return new ResponseEntity<>(fileService.store(file, files), HttpStatus.ACCEPTED);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "http://localhost:420011")
 	@GetMapping("/getAllFiles")
 	public ResponseEntity<FileResponsePojo> getAllFiles(@RequestParam(defaultValue = "0") Integer pageNo,
 			@RequestParam(defaultValue = "10") Integer pageSize, @RequestParam(defaultValue = "id") String sortBy,
