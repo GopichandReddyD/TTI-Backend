@@ -17,7 +17,6 @@ public class VideoController {
 	@Autowired
 	public FileRepository fileRepository;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/upload/video")
 	public ResponseEntity<FileUpload> uploadVideo(@RequestBody FileUpload fileUpload) {
 
