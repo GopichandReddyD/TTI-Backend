@@ -12,6 +12,8 @@ public class FileUpload {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	private String uuid;
+
 	private String title;
 
 	private String description;
@@ -40,6 +42,14 @@ public class FileUpload {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getTitle() {

@@ -11,22 +11,36 @@ import com.ttu.rbt.permissions.PermissionsEnum;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	private String name;
-	
+
+	private String uuid;
+
+	private String fullName;
+
 	private String mailId;
-	
-	private String city;
-	
-	private String state;
-	
-	private String country;
-	
+
 	private String password;
-	
+
 	private PermissionsEnum permissions;
+
+	private Boolean firstLogin;
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String uuid, String fullName, String mailId, String password, PermissionsEnum permissions,
+			Boolean firstLogin) {
+		super();
+		this.uuid = uuid;
+		this.fullName = fullName;
+		this.mailId = mailId;
+		this.password = password;
+		this.permissions = permissions;
+		this.firstLogin = firstLogin;
+	}
 
 	public Integer getId() {
 		return id;
@@ -36,12 +50,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getMailId() {
@@ -50,30 +72,6 @@ public class User {
 
 	public void setMailId(String mailId) {
 		this.mailId = mailId;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String getPassword() {
@@ -91,6 +89,13 @@ public class User {
 	public void setPermissions(PermissionsEnum permissions) {
 		this.permissions = permissions;
 	}
-	
-	
+
+	public Boolean getFirstLogin() {
+		return firstLogin;
+	}
+
+	public void setFirstLogin(Boolean firstLogin) {
+		this.firstLogin = firstLogin;
+	}
+
 }

@@ -1,41 +1,40 @@
 package com.ttu.rbt.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ttu.rbt.permissions.PermissionsEnum;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserPojo {
 
-private Integer id;
-	
-	private String name;
-	
+	private String fullName;
+
 	private String mailId;
-	
-	private String city;
-	
-	private String state;
-	
-	private String country;
-	
+
 	private String password;
-	
+
 	private PermissionsEnum permissions;
+	
+	private String uuid;
 
-	public Integer getId() {
-		return id;
+	public UserPojo() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public UserPojo(String fullName, String mailId, String password, PermissionsEnum permissions, String uuid) {
+		super();
+		this.fullName = fullName;
+		this.mailId = mailId;
+		this.password = password;
+		this.permissions = permissions;
+		this.uuid = uuid;
 	}
 
-	public String getName() {
-		return name;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getMailId() {
@@ -44,30 +43,6 @@ private Integer id;
 
 	public void setMailId(String mailId) {
 		this.mailId = mailId;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public String getPassword() {
@@ -85,4 +60,13 @@ private Integer id;
 	public void setPermissions(PermissionsEnum permissions) {
 		this.permissions = permissions;
 	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 }
