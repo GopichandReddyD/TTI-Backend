@@ -29,7 +29,6 @@ public class FileController {
 	@Autowired
 	public FileService fileService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/upload/file")
 	public ResponseEntity<FileUpload> uploadFile(@RequestPart("file") MultipartFile file,
 			@RequestPart("fileDetails") String fileDetails) throws IOException {
@@ -38,7 +37,6 @@ public class FileController {
 		return new ResponseEntity<>(fileService.store(file, files), HttpStatus.ACCEPTED);
 	}
 
-	@CrossOrigin(origins = "http://localhost:420011")
 	@GetMapping("/getAllFiles")
 	public ResponseEntity<FileResponsePojo> getAllFiles(@RequestParam(defaultValue = "0") Integer pageNo,
 			@RequestParam(defaultValue = "10") Integer pageSize, @RequestParam(defaultValue = "id") String sortBy,
@@ -55,7 +53,6 @@ public class FileController {
 		return new ResponseEntity<>(fileResponse, HttpStatus.OK);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/getFile/{name}")
 	public ResponseEntity<Resource> getFile(@PathVariable("name") String fileName) throws IOException {
 
@@ -64,15 +61,14 @@ public class FileController {
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION).body(file);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/getFiles")
 	public ResponseEntity<Resource> getFiles(@RequestBody String[] fileNames) {
 
 		Resource file = fileService.multipleDownload(fileNames);
+		
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION).body(file);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/getFileDetails/{title}")
 	public ResponseEntity<FileUpload> getFileDetailsWithTitle(@PathVariable("title") String fileTitle) {
 
@@ -80,7 +76,6 @@ public class FileController {
 		return new ResponseEntity<>(fileService.loadFileDetails(fileTitle), HttpStatus.OK);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/getFileDetails")
 	public ResponseEntity<FileUpload> getFileDetailsWithUUID(@RequestParam(value = "uuid") String uuid) {
 

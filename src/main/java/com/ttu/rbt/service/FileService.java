@@ -44,7 +44,7 @@ public class FileService {
 
 	private Path uploadLocation;
 
-	public static final String UPLOAD_LOCATION = "/Users/gopichandureddy/Desktop/rbt";
+	public static final String UPLOAD_LOCATION = "C:/Users/gdoggala/Documents/rbt";
 
 	@PostConstruct
 	public void init() {
@@ -227,7 +227,9 @@ public class FileService {
 
 			for (int i = 0; i < srcFiles.length; i++) {
 
+				
 				File srcFile = new File(UPLOAD_LOCATION + "/" + srcFiles[i]);
+				downloadCount(srcFiles[i]);
 
 				FileInputStream fis = new FileInputStream(srcFile);
 

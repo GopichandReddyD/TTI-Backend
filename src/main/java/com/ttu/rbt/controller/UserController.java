@@ -34,14 +34,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(path = "/add")
 	public ResponseEntity<UserResponsePojo> addNewUser(@RequestBody UserPojo userData) {
 
 		return new ResponseEntity<>(userService.addUser(userData), HttpStatus.ACCEPTED);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping(path = "/update/password/{uuid}/{password}")
 	public ResponseEntity<String> updateUserPassword(@PathVariable("uuid") String uuid,
 			@PathVariable("password") String password) {
@@ -50,14 +48,12 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping(path = "/update")
 	public ResponseEntity<User> updateUser(@RequestBody UserPojo userData) {
 
 		return new ResponseEntity<>(userService.updateUser(userData), HttpStatus.OK);
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping(path = "/delete")
 	public ResponseEntity<String> deteleUser(@RequestBody UserPojo userData) {
 
@@ -72,13 +68,11 @@ public class UserController {
 
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(path = "/all")
 	public Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(path = "/authenticate/{token}/{uuid}")
 	public ResponseEntity<AuthenticateResponse> getToken(@PathVariable("token") String token,
 			@PathVariable("uuid") String uuid) {
@@ -102,7 +96,6 @@ public class UserController {
 
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(path = "/login")
 	public ResponseEntity<UserResponsePojo> login(@RequestBody LoginPojo loginDetails) {
 

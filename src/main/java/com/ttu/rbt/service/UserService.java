@@ -41,7 +41,7 @@ public class UserService {
 		UUID uuid = UUID.randomUUID();
 		System.out.println(uuid);
 		User user = new User(uuid.toString(), userData.getFullName(), userData.getMailId(), encoded,
-				userData.getPermissions(), true);
+				userData.getPermissions(), false);
 		User u = userRepository.save(user);
 
 		String jwt = createJWT(u.getId().toString(), "TTI", "admin", 300000, u.getUuid());

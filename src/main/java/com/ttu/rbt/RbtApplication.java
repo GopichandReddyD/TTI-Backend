@@ -1,7 +1,5 @@
 package com.ttu.rbt;
 
-import java.util.UUID;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +8,7 @@ public class RbtApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RbtApplication.class, args);
+		
 	}
 	
 
