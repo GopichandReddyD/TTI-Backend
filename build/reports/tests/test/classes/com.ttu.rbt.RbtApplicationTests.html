@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - RbtApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>RbtApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.ttu.rbt.html">com.ttu.rbt</a> &gt; RbtApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.124s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contextLoads()</td>
+<td class="success">0.124s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>03:36:38.457 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+03:36:38.467 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+03:36:38.494 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.ttu.rbt.RbtApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+03:36:38.503 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ttu.rbt.RbtApplicationTests], using SpringBootContextLoader
+03:36:38.506 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.ttu.rbt.RbtApplicationTests]: class path resource [com/ttu/rbt/RbtApplicationTests-context.xml] does not exist
+03:36:38.507 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.ttu.rbt.RbtApplicationTests]: class path resource [com/ttu/rbt/RbtApplicationTestsContext.groovy] does not exist
+03:36:38.507 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.ttu.rbt.RbtApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+03:36:38.508 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.ttu.rbt.RbtApplicationTests]: RbtApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03:36:38.544 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.ttu.rbt.RbtApplicationTests]
+03:36:38.582 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/gopichandureddy/Downloads/TTI-Backend/build/classes/java/main/com/ttu/rbt/RbtApplication.class]
+03:36:38.586 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.ttu.rbt.RbtApplication for test class com.ttu.rbt.RbtApplicationTests
+03:36:38.652 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.ttu.rbt.RbtApplicationTests]: using defaults.
+03:36:38.653 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03:36:38.666 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@fc12372, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@469dab2b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@43cd209d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1b06a4f9, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1d5ade58, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3635ea2b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1c56fdb8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@32d9b3a7, org.springframework.test.context.event.EventPublishingTestExecutionListener@79ba13ba, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@60c7ca14, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4bd74089, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@34ec96df, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1d62643b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@43ab9ae9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3209491d]
+03:36:38.669 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@56c916e2 testClass = RbtApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4f5cf602 testClass = RbtApplicationTests, locations = '{}', classes = '{class com.ttu.rbt.RbtApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e401925, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6ccd697e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@15e73679, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@51eb9c0e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6c0465f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@3e35ea87], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+03:36:38.692 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+2021-04-21 03:36:39.127  INFO 4000 --- [    Test worker] com.ttu.rbt.RbtApplicationTests          : Starting RbtApplicationTests using Java 15.0.1 on GopiChands-MacBook-Pro.local with PID 4000 (started by gopichandureddy in /Users/gopichandureddy/Downloads/TTI-Backend)
+2021-04-21 03:36:39.131  INFO 4000 --- [    Test worker] com.ttu.rbt.RbtApplicationTests          : No active profile set, falling back to default profiles: default
+2021-04-21 03:36:39.640  INFO 4000 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 03:36:39.684  INFO 4000 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 3 JPA repository interfaces.
+2021-04-21 03:36:40.104  INFO 4000 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 03:36:40.143  INFO 4000 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 03:36:40.256  INFO 4000 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 03:36:40.337  INFO 4000 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-21 03:36:40.692  INFO 4000 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-21 03:36:40.714  INFO 4000 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-04-21 03:36:41.147  INFO 4000 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 03:36:41.152  INFO 4000 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 03:36:41.680  WARN 4000 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 03:36:42.495  INFO 4000 --- [    Test worker] com.ttu.rbt.RbtApplicationTests          : Started RbtApplicationTests in 3.798 seconds (JVM running for 4.581)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8.2</a> at Apr 21, 2021, 3:36:42 AM</p>
+</div>
+</div>
+</body>
+</html>
