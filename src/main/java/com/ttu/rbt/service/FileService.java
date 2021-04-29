@@ -45,7 +45,7 @@ public class FileService {
 	private Path uploadLocation;
 
 	public static final String UPLOAD_LOCATION = "/Users/gopichandureddy/Desktop/rbt";
-	//public static final String UPLOAD_LOCATION = "/Users/gopichandureddy/Desktop/rbt";
+	//public static final String UPLOAD_LOCATION = "C:/Users/gdoggala/Documents/rbt";
 
 	@PostConstruct
 	public void init() {
