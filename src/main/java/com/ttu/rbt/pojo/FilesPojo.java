@@ -22,7 +22,7 @@ public class FilesPojo {
 	private String name;
 
 	private String filePath;
-	
+
 	private String type;
 
 	private File file;
@@ -106,6 +106,5 @@ public class FilesPojo {
 	public void setFile(File file) {
 		this.file = file;
 	}
-	
 
 }

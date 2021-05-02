@@ -31,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ttu.rbt.entity.FileUpload;
+import com.ttu.rbt.pojo.FileUpdatePojo;
 import com.ttu.rbt.pojo.FilesPojo;
 import com.ttu.rbt.repo.FileRepository;
 
@@ -42,21 +43,13 @@ public class FileService {
 	@Autowired
 	private FileRepository fileRepository;
 
-	private Path uploadLocation;
-
 	public static final String UPLOAD_LOCATION = "/Users/gopichandureddy/Desktop/rbt";
-	//public static final String UPLOAD_LOCATION = "C:/Users/gdoggala/Documents/rbt";
+	// public static final String UPLOAD_LOCATION =
+	// "C:/Users/gdoggala/Documents/rbt";
 
-	@PostConstruct
-	public void init() {
-		this.uploadLocation = Paths.get(UPLOAD_LOCATION);
-		try {
-			Files.createDirectories(uploadLocation);
-		} catch (IOException e) {
-			throw new RuntimeException("Could not initialize storage", e);
-		}
-	}
+	private Path uploadLocation = Paths.get(UPLOAD_LOCATION);
 
+	// file details to json
 	public FilesPojo getJson(String fileDetails) {
 		FilesPojo filesJson = new FilesPojo();
 
@@ -69,6 +62,7 @@ public class FileService {
 		return filesJson;
 	}
 
+	// store a file into directory and file detils to DB
 	public FileUpload store(MultipartFile file, FilesPojo fileDetails) throws IOException {
 
 		FileUpload fileUpload = new FileUpload();
@@ -91,7 +85,7 @@ public class FileService {
 			fileUpload.setDownloads(0);
 			fileUpload.setViews(0);
 
-			Path path = this.uploadLocation.resolve(filename);
+			Path path = uploadLocation.resolve(filename);
 			Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
 
 			fileUpload.setFilePath(path.toString());
@@ -104,6 +98,29 @@ public class FileService {
 		}
 	}
 
+	// edit file details
+	public FileUpload editFileDetails(String uuid, FileUpdatePojo fileUpdatePojo) {
+
+		FileUpload fileUpload = fileRepository.findByUuid(uuid);
+
+		fileUpload.setTitle(fileUpdatePojo.getTitle());
+		fileUpload.setDescription(fileUpdatePojo.getDescription());
+		fileUpload.setMainCategory(fileUpdatePojo.getMainCategory());
+		fileUpload.setSubCategory(fileUpdatePojo.getSubCategory());
+
+		return fileRepository.save(fileUpload);
+
+	}
+
+	// delete file with UUID
+	public void deleteFile(String uuid) {
+
+		FileUpload fileUpload = fileRepository.findByUuid(uuid);
+		fileRepository.delete(fileUpload);
+
+	}
+
+	// returns all file details with pagination
 	public List<FileUpload> getAllFiles(Integer pageNo, Integer pageSize, String sortBy, String mainCategory,
 			String subCategory, String search) {
 
@@ -145,10 +162,12 @@ public class FileService {
 
 	}
 
+	// returns total size of entries in DB
 	public int getTotalSize() {
 		return (int) fileRepository.count();
 	}
 
+	// returns total downloads of entries in DB
 	public int getTotalDownloadCount() {
 		List<Integer> list = fileRepository.findAllDownloads();
 		int count = 0;
@@ -159,6 +178,7 @@ public class FileService {
 		return count;
 	}
 
+	// returns total views of entries in DB
 	public int getTotalViewsCount() {
 		List<Integer> list = fileRepository.findAllViews();
 		int count = 0;
@@ -169,6 +189,12 @@ public class FileService {
 		return count;
 	}
 
+	// returns file details with UUID
+	public FileUpload loadFileDetailsWithUUID(String uuid) {
+		return fileRepository.findByUuid(uuid);
+	}
+
+	// download a file
 	public Resource loadAsResource(String filename) {
 		try {
 			Path file = uploadLocation.resolve(filename);
@@ -183,41 +209,13 @@ public class FileService {
 		}
 	}
 
-	public FileUpload loadFileDetails(String fileTitle) {
-		return fileRepository.findByTitle(fileTitle);
-	}
-
-	public FileUpload loadFileDetailsWithUUID(String uuid) {
-		return fileRepository.findByUuid(uuid);
-	}
-
-	public void downloadCount(String filename) {
-		FileUpload fileUpload = fileRepository.findByName(filename);
-		Integer downloads = fileUpload.getDownloads();
-		fileUpload.setDownloads(downloads + 1);
-		fileRepository.save(fileUpload);
-	}
-
-	public void viewCount(String fileTitle) {
-		FileUpload fileUpload = fileRepository.findByTitle(fileTitle);
-		Integer views = fileUpload.getViews();
-		fileUpload.setViews(views + 1);
-		fileRepository.save(fileUpload);
-	}
-
-	public void viewCountWithUUID(String uuid) {
-
-		FileUpload fileUpload = fileRepository.findByUuid(uuid);
-		Integer views = fileUpload.getViews();
-		fileUpload.setViews(views + 1);
-		fileRepository.save(fileUpload);
-	}
-
+	// download of multiple files
 	public Resource multipleDownload(String[] srcFiles) {
-		String zipName = "archive.zip";
-		String zipFile = UPLOAD_LOCATION + "/" + zipName;
 
 		try {
+
+			String zipName = "archive.zip";
+			String zipFile = UPLOAD_LOCATION + "/" + zipName;
 
 			// create byte buffer
 			byte[] buffer = new byte[1024];
@@ -228,7 +226,6 @@ public class FileService {
 
 			for (int i = 0; i < srcFiles.length; i++) {
 
-				
 				File srcFile = new File(UPLOAD_LOCATION + "/" + srcFiles[i]);
 				downloadCount(srcFiles[i]);
 
@@ -260,7 +257,27 @@ public class FileService {
 			System.out.println("Error creating zip file: " + ioe);
 			return null;
 		}
-		
+
+	}
+
+	// increases download count
+	public void downloadCount(String filename) {
+		FileUpload fileUpload = fileRepository.findByName(filename);
+		Integer downloads = fileUpload.getDownloads();
+		fileUpload.setDownloads(downloads + 1);
+		fileRepository.save(fileUpload);
+	}
+
+	// increases view count
+	public void viewCountWithUUID(String uuid) {
+
+		FileUpload fileUpload = fileRepository.findByUuid(uuid);
+		Integer views = fileUpload.getViews();
+		Integer downloads = fileUpload.getDownloads();
+		fileUpload.setViews(views + 1);
+		fileUpload.setDownloads(downloads - 1);
+
+		fileRepository.save(fileUpload);
 	}
 
 }

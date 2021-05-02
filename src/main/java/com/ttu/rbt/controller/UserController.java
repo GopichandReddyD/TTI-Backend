@@ -101,5 +101,23 @@ public class UserController {
 
 		return new ResponseEntity<>(userService.login(loginDetails), HttpStatus.OK);
 	}
+	
+	@GetMapping(path = "/addition/{a}/{b}")
+	public ResponseEntity<Integer> add(@PathVariable("a") int a, @PathVariable("b") int b)
+	{
+
+		if(a >= 0 && b >= 0) {
+			int c = a+b;
+			
+			return new ResponseEntity<>(c, HttpStatus.ACCEPTED);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+	
+		
+		
+	}
 
 }

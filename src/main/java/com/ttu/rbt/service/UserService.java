@@ -39,7 +39,7 @@ public class UserService {
 		String encoded = bCryptPasswordEncoder.encode(userData.getPassword());
 
 		UUID uuid = UUID.randomUUID();
-		System.out.println(uuid);
+		//System.out.println(uuid);
 		User user = new User(uuid.toString(), userData.getFullName(), userData.getMailId(), encoded,
 				userData.getPermissions(), false);
 		User u = userRepository.save(user);

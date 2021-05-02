@@ -36,6 +36,7 @@ public interface FileRepository extends JpaRepository<FileUpload, Integer> {
 	@Query("select b.views from FileUpload b")
 	List<Integer> findAllViews();
 	
+	
 
 
 }
