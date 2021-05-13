@@ -61,4 +61,8 @@ public class AdminService {
 
 		return response;
 	}
+	
+	public void deleteMainCategory(String mainCategory) {
+		mainCategoryRepository.deleteByName(mainCategory);
+	}
 }

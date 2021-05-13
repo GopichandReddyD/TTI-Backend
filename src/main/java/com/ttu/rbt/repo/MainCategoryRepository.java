@@ -9,5 +9,7 @@ import com.ttu.rbt.entity.MainCategory;
 public interface MainCategoryRepository extends JpaRepository<MainCategory, Integer> {
 
 	MainCategory findByName(String name);
+	
+	void deleteByName(String name);
 
 }
