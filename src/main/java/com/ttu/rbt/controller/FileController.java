@@ -83,6 +83,15 @@ public class FileController {
 	}
 
 	// gets/download file with name
+	@GetMapping("/getFile1/{name}")
+	public ResponseEntity<Resource> getFile1(@PathVariable("name") String fileName) throws IOException {
+
+		//fileService.downloadCount(fileName);
+		Resource file = fileService.loadAsResource(fileName);
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION).body(file);
+	}
+
+	// gets/download file with name
 	@GetMapping("/getFile/{name}")
 	public ResponseEntity<Resource> getFile(@PathVariable("name") String fileName) throws IOException {
 

@@ -275,7 +275,7 @@ public class FileService {
 		Integer views = fileUpload.getViews();
 		Integer downloads = fileUpload.getDownloads();
 		fileUpload.setViews(views + 1);
-		fileUpload.setDownloads(downloads - 1);
+		//fileUpload.setDownloads(downloads - 1);
 
 		fileRepository.save(fileUpload);
 	}
