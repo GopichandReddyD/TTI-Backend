@@ -19,13 +19,32 @@ public class RbtApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RbtApplication.class, args);
 		
-		final String username = "gdoggala@ttu.edu";  // like yourname@outlook.com
-	    final String password = "sRINUVASU1901@";   // password here
+		final String username = "";  // like yourname@outlook.com
+	    final String password = "";   // password here
 
-	    Properties props = new Properties();
+	    Properties properties = System.getProperties();
+        properties.put("mail.smtp.auth", "false");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "basic.smtp.ttu.edu");
+        properties.put("mail.smtp.port", 587);
+        Session session = Session.getInstance(properties);
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("tti@ttu.edu"));
+            message.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress("gdoggala@ttu.edu"));
+            message.setSubject("This is the Subject Line!");
+            message.setText("This is actual message");
+            Transport.send(message);
+            System.out.println("Sent message successfully....");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+        }
+	    
+	   /* Properties props = new Properties();
 	    props.put("mail.smtp.auth", "true");
 	    props.put("mail.smtp.starttls.enable", "true");
-	    props.put("mail.smtp.host", "smtp-mail.outlook.com");
+	    props.put("mail.smtp.host", "basic.smtp.ttu.edu");
 	    props.put("mail.smtp.port", "587");
 
 	    Session session = Session.getInstance(props,
@@ -42,7 +61,7 @@ public class RbtApplication {
 	        Message message = new MimeMessage(session);
 	        message.setFrom(new InternetAddress(username));
 	        message.setRecipients(Message.RecipientType.TO,
-	            InternetAddress.parse("rmadishe@ttu.edu"));   // like inzi769@gmail.com
+	            InternetAddress.parse("gdoggala@ttu.edu"));   // like inzi769@gmail.com
 	        message.setSubject("Test");
 	        message.setText("HI you have done sending mail with outlook");
 
@@ -52,7 +71,7 @@ public class RbtApplication {
 
 	    } catch (MessagingException e) {
 	        throw new RuntimeException(e);
-	    }
+	    }*/
 		
 	}
 	
