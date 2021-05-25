@@ -20,7 +20,7 @@ public class EmailController {
 	public ResponseEntity<String>sendmail(@RequestBody ContactUsEmail contactUsEmail) {
 
 		String subject = "TTI Contact Us | "+contactUsEmail.getSubject();
-		String body = "Name:" + contactUsEmail.getName() + "\r\nEmail:" + contactUsEmail.getEmail() + "\r\nSubject:"
+		String body = "Hi,\r\n please see the following response and click on the email address to reply back\r\n"+"Name:" + contactUsEmail.getName() + "\r\nEmail:" + contactUsEmail.getEmail() + "\r\nSubject:"
 				+ contactUsEmail.getSubject() + "\r\nMessage:" + contactUsEmail.getMessage();
 		
 		System.out.println(body);
