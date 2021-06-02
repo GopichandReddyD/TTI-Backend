@@ -26,6 +26,8 @@ public class User {
 
 	private Boolean firstLogin;
 
+	private String restPasswordToken;
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -96,6 +98,14 @@ public class User {
 
 	public void setFirstLogin(Boolean firstLogin) {
 		this.firstLogin = firstLogin;
+	}
+
+	public String getRestPasswordToken() {
+		return restPasswordToken;
+	}
+
+	public void setRestPasswordToken(String restPasswordToken) {
+		this.restPasswordToken = restPasswordToken;
 	}
 
 }

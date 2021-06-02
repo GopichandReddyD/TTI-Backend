@@ -1,2 +1,0 @@
-com/ttu/rbt/RbtApplicationTests.java
- com.ttu.rbt.RbtApplicationTests
