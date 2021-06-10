@@ -1,5 +1,8 @@
 package com.ttu.rbt.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ResponseMessage {
 	
 	private String message;
