@@ -16,7 +16,7 @@ import com.ttu.rbt.service.EmailService;;
 @RestController
 public class EmailController {
 
-	public static final String TTI_URL = "http:tti.educ.ttu.edu/auth/reset-password/";
+	public static final String TTI_URL = "http://tti.educ.ttu.edu/auth/reset-password/";
 	
 	@Autowired
 	private EmailService emailService;
