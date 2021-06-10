@@ -16,8 +16,6 @@ import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -273,10 +271,7 @@ public class FileService {
 
 		FileUpload fileUpload = fileRepository.findByUuid(uuid);
 		Integer views = fileUpload.getViews();
-		Integer downloads = fileUpload.getDownloads();
 		fileUpload.setViews(views + 1);
-		//fileUpload.setDownloads(downloads - 1);
-
 		fileRepository.save(fileUpload);
 	}
 

@@ -15,6 +15,8 @@ import com.ttu.rbt.service.EmailService;;
 @RestController
 public class EmailController {
 
+	public static final String TTI_URL = "http:tti.educ.ttu.edu/reset-password/";
+	
 	@Autowired
 	private EmailService emailService;
 
@@ -45,7 +47,7 @@ public class EmailController {
 			String token = emailService.passwordResetLink(userName);
 
 			String subject = "TTI Password reset";
-			String URL = token;
+			String URL = TTI_URL+token;
 			emailService.sendMail(userName, subject, URL);
 
 			return new ResponseEntity<>("resetpassword link sent successfully", HttpStatus.OK);

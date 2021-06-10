@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,16 +54,23 @@ public class UserController {
 	}
 
 	@DeleteMapping(path = "/delete")
-	public ResponseEntity<String> deteleUser(@RequestBody UserPojo userData) {
+	public ResponseEntity<String> deteleUser(@RequestBody LoginPojo loginDetails) {
 
-		if (!userData.getMailId().isEmpty()) {
-			User user = new User();
-			user = userRepository.findByMailId(userData.getMailId());
-			userRepository.delete(user);
-			return new ResponseEntity<>(HttpStatus.OK);
+		User user = userRepository.findByMailId(loginDetails.getMailId());
+		if (user != null) {
+
+			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+			Boolean match = bCryptPasswordEncoder.matches(loginDetails.getPassword(), user.getPassword());
+
+			if (match.equals(true)) {
+
+				userRepository.delete(user);
+				
+				return new ResponseEntity<>("user delete sucessfull", HttpStatus.OK);
+				
+			}
 		}
-
-		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("credentials didn't  match", HttpStatus.BAD_REQUEST);
 
 	}
 
