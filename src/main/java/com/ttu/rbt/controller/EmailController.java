@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ttu.rbt.pojo.ContactUsEmail;
 import com.ttu.rbt.pojo.ResetPasswordPojo;
+import com.ttu.rbt.pojo.ResponseMessage;
 import com.ttu.rbt.service.EmailService;;
 
 @RestController
@@ -19,6 +20,9 @@ public class EmailController {
 	
 	@Autowired
 	private EmailService emailService;
+	
+	@Autowired
+	private ResponseMessage responseMessage;
 
 	// responsible for contact us email
 	@PostMapping(value = "/email/contactUS")
@@ -42,33 +46,43 @@ public class EmailController {
 
 	// responsible to verify user and send resetpasswordlink
 	@PostMapping(value = "/forgotpassword/userName/{userName}")
-	public ResponseEntity<String> sendResetLink(@PathVariable("userName") String userName) {
+	public ResponseEntity<ResponseMessage> sendResetLink(@PathVariable("userName") String userName) {
 		try {
 			String token = emailService.passwordResetLink(userName);
 
 			String subject = "TTI Password reset";
 			String URL = TTI_URL+token;
 			emailService.sendMail(userName, subject, URL);
+			
+			responseMessage.setMessage("resetpassword link sent successfully");
+			responseMessage.setStatus(200);
 
-			return new ResponseEntity<>("resetpassword link sent successfully", HttpStatus.OK);
+			return new ResponseEntity<>(responseMessage, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+			responseMessage.setMessage(e.getMessage());
+			responseMessage.setStatus(404);
+			return new ResponseEntity<>(responseMessage, HttpStatus.NOT_FOUND);
 		}
 	}
 
 	// responsible resetpassword from the token
 	@PostMapping(value = "/forgotpassword/reset")
-	public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordPojo resetPassword) {
+	public ResponseEntity<ResponseMessage> resetPassword(@RequestBody ResetPasswordPojo resetPassword) {
 		try {
 			emailService.resetPassword(resetPassword);
 
-			return new ResponseEntity<>("password reset successful", HttpStatus.OK);
+			responseMessage.setMessage("password reset successful");
+			responseMessage.setStatus(200);
+			
+			return new ResponseEntity<>(responseMessage, HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+			responseMessage.setMessage(e.getMessage());
+			responseMessage.setStatus(404);
+			return new ResponseEntity<>(responseMessage, HttpStatus.NOT_FOUND);
 		}
 	}
 
