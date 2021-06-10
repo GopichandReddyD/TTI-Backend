@@ -52,7 +52,9 @@ public class EmailController {
 
 			String subject = "TTI Password reset";
 			String URL = TTI_URL+token;
-			emailService.sendMail(userName, subject, URL);
+			String body = "please click on this link to reset your password: "+ URL;
+			System.out.println(body);
+			emailService.sendMail(userName, subject, body);
 			
 			responseMessage.setMessage("resetpassword link sent successfully");
 			responseMessage.setStatus(200);
