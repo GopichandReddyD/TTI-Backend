@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ResponseMessage {
-	
+
 	private String message;
-	
-	private int  status;
+
+	private int status;
 
 	public String getMessage() {
 		return message;
@@ -24,6 +24,5 @@ public class ResponseMessage {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
 
 }

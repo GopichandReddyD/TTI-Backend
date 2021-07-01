@@ -11,5 +11,6 @@ public interface MainCategoryRepository extends JpaRepository<MainCategory, Inte
 	MainCategory findByName(String name);
 	
 	void deleteByName(String name);
+	
 
 }

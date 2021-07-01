@@ -34,7 +34,7 @@ public class EmailController {
 				+ contactUsEmail.getSubject() + "\r\nMessage:" + contactUsEmail.getMessage();
 
 		try {
-			emailService.sendMail("gdoggala@ttu.edu", subject, body);
+			emailService.sendMail("burkhart.educ@ttu.edu", subject, body);
 
 			return new ResponseEntity<>("Email sent", HttpStatus.OK);
 		} catch (Exception e) {
